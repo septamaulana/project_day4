@@ -2,7 +2,6 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}{{title}}{% endblock %}
-{% include "menu.html" %}
 
 {% block content %}
     <div class="container">
@@ -12,8 +11,7 @@
                 {{ message }}
             </div>
         {% endfor %}
-        <h1>Selamat datang {{user.username}}</h1>
-        <br>
-        <a href={{ url_for('logout')}}>Log out</a>
-    </div>
+        {{ wtf.quick_form(form) }}
+        <a href={{ url_for('register')}}>Register</a>
+</div>
 {% endblock %}
